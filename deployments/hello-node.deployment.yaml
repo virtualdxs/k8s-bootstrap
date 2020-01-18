@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-node-deployment
+  labels:
+    app: hello-node
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-node
+  template:
+    metadata:
+      labels:
+        app: hello-node
+    spec:
+      containers:
+      - name: hello-node
+        image: gcr.io/hello-minikube-zero-install/hello-node
+        ports:
+        - containerPort: 8080

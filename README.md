@@ -109,7 +109,7 @@ These commands need only be run on **one** node.
 3. Install and activate ingress-nginx
 
         kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.27.1/deploy/static/mandatory.yaml
-        kubectl apply -f services/ingress-nginx.yaml
+        kubectl apply -f services/ingress-nginx.service.yaml
         
 ## Part 3: Test everything with a simple deployment
 

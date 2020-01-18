@@ -82,8 +82,13 @@ Unless otherwise specified, all commands are to be run on all nodes.
 11. **On all other control plane nodes:** Join cluster (This command is from the output of step 10. The specific values will be different.)
 
         kubeadm join cluster-endpoint:6443 --token ibirdm.pbv61rijkj2v07kj --discovery-token-ca-cert-hash sha256:e326a1f3ca9985ff957b16b4cc48e5a1a93b26f15fd7487876da368e5ea669ca --control-plane --certificate-key c6c4ceae3eb0f89213f5a099572d761f852ad2b4ef8771fcd7c4bb5e0ac3bfc7
+        
+12. **On all worker-only nodes:** Join cluster (This command is from the output of step 10. The specific values will be different.)
 
-12. Allow root to manage with kubectl (Run this command, then start a new shell for this to take effect)
+        kubeadm join k8s-cluster-endpoint:6443 --token ibirdm.pbv61rijkj2v07kj --discovery-token-ca-cert-hash sha256:e326a1f3ca9985ff957b16b4cc48e5a1a93b26f15fd7487876da368e5ea669ca
+
+
+13. Allow root to manage with kubectl (Run this command, then start a new shell for this to take effect)
 
         echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' >> .bashrc
 

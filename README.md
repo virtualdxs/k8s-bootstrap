@@ -60,7 +60,7 @@ Unless otherwise specified, all commands are to be run on all nodes.
 
 7. Start and enable kubelet service
 
-        systemctl enable --now kubelet
+        systemctl enable --now docker kubelet
 
 8. Ensure all traffic goes through iptables
 

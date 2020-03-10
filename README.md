@@ -21,12 +21,14 @@ Unless otherwise specified, all commands are to be run on all nodes.
          firewall-cmd --permanent --add-port=6443/tcp
          firewall-cmd --permanent --add-port=2379-2380/tcp
          firewall-cmd --permanent --add-port=10250-10252/tcp
+         firewall-cmd --permanent --add-port=8472/udp
          firewall-cmd --reload
 
    - Worker node:
 
          firewall-cmd --permanent --add-port=10250/tcp
          firewall-cmd --permanent --add-port=30000-32767/tcp
+         firewall-cmd --permanent --add-port=8472/udp
          firewall-cmd --reload
    - Dual-purpose node:
 
@@ -34,6 +36,7 @@ Unless otherwise specified, all commands are to be run on all nodes.
          firewall-cmd --permanent --add-port=2379-2380/tcp
          firewall-cmd --permanent --add-port=10250-10252/tcp
          firewall-cmd --permanent --add-port=30000-32767/tcp
+         firewall-cmd --permanent --add-port=8472/udp
          firewall-cmd --reload
 
 3. Disable and remove any swap space
@@ -98,7 +101,7 @@ These commands need only be run on **one** node.
 
 1. Install flannel
 
-       kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
+       kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 2. Install metallb
    Modify `configmaps/metallb.configmap.yaml` with the IP addresses you want to use, then run:
